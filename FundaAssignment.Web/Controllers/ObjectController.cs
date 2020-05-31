@@ -18,9 +18,10 @@ namespace FundaAssignment.Web.Controllers
         {
             _objectService = objectService;
         }
-        public IActionResult GetObjects()
+        public async IActionResult GetObjects()
         {
-            return Ok(_objectService.GetTop10MakelaarsInAmsterdam().Result);
+            var objects = _objectService.GetTop10MakelaarsInAmsterdam();
+            return Ok(objects);
         }
     }
 }
